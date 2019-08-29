@@ -19,6 +19,7 @@ void setup(){
   frameRate(30);
   startKnobs();
   location.x = kanonX.getValue();
+  rectMode(CENTER);
 }
 
 void draw() {
@@ -26,12 +27,12 @@ void draw() {
 
 
 
-
+  //Draws Canon
   background(200);
   pushMatrix();
 
-    translate (20,height - kanonY.getValue()-60);
-    rotate (5.5);
+  translate (20,height - kanonY.getValue()-60);
+  rotate (0-radians(shotAngle.getValue()));
   fill(0,255,0);
   rect(0,0,400,60);
 
@@ -86,8 +87,8 @@ void keyPressed(){
   if(key == 'f'){
     location.x = 0+kanonX.getValue();
     location.y = height+kanonY.getValue();
-    velocity.x = cos(radians(shotAngle.getValue()))*magnitude.getValue();
-    velocity.y = sin(radians(shotAngle.getValue()))*magnitude.getValue();
+    velocity.x = cos(-radians(shotAngle.getValue()))*magnitude.getValue();
+    velocity.y = sin(-radians(shotAngle.getValue()))*magnitude.getValue();
 
 
   }
