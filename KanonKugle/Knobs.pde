@@ -11,11 +11,8 @@ Knob kanonY;
 
 
 
-
-
-
 void startKnobs(){
-  //I define a font for my knobs to use, which is larger than the defualt one
+ //I define a font for my knobs to use, which is larger than the defualt one
  PFont pfont = createFont("Arial",20,true);
  ControlFont bigFont = new ControlFont(pfont,20);
 
