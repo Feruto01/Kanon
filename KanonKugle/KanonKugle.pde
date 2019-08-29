@@ -1,4 +1,4 @@
-PVector location = new PVector (10, 350);
+PVector location = new PVector (0, 0);
 PVector velocity = new PVector (10, -5);
 PVector acceleration = new PVector (0, 0);
 PVector gravity = new PVector (0, 0.1);
@@ -9,7 +9,7 @@ PVector aacceleration = new PVector (1,1);
 
 
 void setup(){
-  size(600,600);
+  size(1920,1080);
   frameRate(30);
 }
 
@@ -21,7 +21,7 @@ void draw() {
   velocity.mult(0.98);
 
     acceleration.y = acceleration.y  +   gravity.y;
-  square (location.x,location.y,30);
+  square(location.x,location.y,30);
 //pushMatrix();
 //rectMode(CENTER);
 //translate(location.x, location.y);
@@ -29,10 +29,10 @@ void draw() {
 //popMatrix();
   
   
-  if (location.y >= 600)
+  if (location.y >= height)
 {
- velocity.y *= -0.8   ;
+ velocity.y *= -1   ;
 }
 if (location.x >= width)
-velocity.x *= -0.8     ;
+velocity.x *= -1     ;
 }
