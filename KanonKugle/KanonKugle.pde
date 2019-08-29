@@ -1,9 +1,8 @@
 PVector location = new PVector (0, 1000);
-PVector velocity = new PVector (20, -15);
+PVector velocity = new PVector (50, -50);
 PVector acceleration = new PVector (0, 0);
 PVector gravity = new PVector (0, 0.1);
-PVector avelocity = new PVector (1,1);
-PVector aacceleration = new PVector (1,1);
+
 
 
 
@@ -18,6 +17,7 @@ void draw() {
   background(200);
   location.add(velocity);
   velocity.add(acceleration);
+  // Vindmodstand
   velocity.mult(0.98);
 
     acceleration.y = acceleration.y  +   gravity.y;
@@ -29,10 +29,12 @@ void draw() {
 //popMatrix();
   
   
-  if (location.y >= height)
+  if (location.y >= height || location.y <= 0)
 {
  velocity.y *= -1   ;
 }
-if (location.x >= width)
+if (location.x >= width || location.x <= 0)
 velocity.x *= -1     ;
+
+
 }
