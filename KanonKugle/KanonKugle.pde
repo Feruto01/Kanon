@@ -18,7 +18,8 @@ void draw() {
   background(200);
   location.add(velocity);
   velocity.add(acceleration);
-  //acceleration.x = acceleration.x  *   gravity.x;
+  velocity.mult(0.98);
+
     acceleration.y = acceleration.y  +   gravity.y;
   square (location.x,location.y,30);
 pushMatrix();
