@@ -1,0 +1,47 @@
+
+//Imports Control p5, and gives it the name cp5, for easier access.
+import controlP5.*;
+ControlP5 cp5;
+
+//Names two knobs
+Knob kanonXKnob;
+Knob kanonYKnob;
+
+
+
+//I define a font for my knobs to use, which is larger than the defualt one
+ 
+void startKnobs(){
+  
+  PFont pfont = createFont("Arial",20,true);
+  ControlFont bigFont = new ControlFont(pfont,20);
+  
+  //Sets properties for the knobs
+  kanonXKnob = cp5.addKnob("kanonXKnob")
+             .setRange(10,400)
+             .setValue(10)
+             .setPosition(10,10)
+             .setRadius(50)
+             .setDragDirection(Knob.VERTICAL)
+             .setSize(200,1)
+             .setNumberOfTickMarks(16)
+             .snapToTickMarks(true)
+             .setTickMarkLength(10)
+             .setFont(bigFont)
+             .setResolution(160)
+             ;
+
+kanonYKnob= cp5.addKnob("kanonYKnob")
+             .setRange(100,100)
+             .setValue(10)
+             .setPosition(530,800)
+             .setRadius(50)
+             .setDragDirection(Knob.VERTICAL)
+             .setNumberOfTickMarks(16)
+             .setSize(200,1)
+             .snapToTickMarks(false)
+             .setTickMarkLength(10)
+             .setResolution(160)
+             .setFont(bigFont)
+             ;
+}
