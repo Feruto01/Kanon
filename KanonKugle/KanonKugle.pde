@@ -1,5 +1,6 @@
 
-
+import controlP5.*;
+ControlP5 cp5;
 PVector location = new PVector (0, 700);
 PVector velocity = new PVector (3, -3);
 PVector acceleration = new PVector (0, 0);
@@ -23,25 +24,30 @@ void setup(){
 }
 
 void draw() {
+  
+  
+    
+    
 
   background(200);
   location.add(velocity);
   velocity.add(acceleration);
   // Vindmodstand
   velocity.mult(0.98);
-aacceleration = acceleration.mag()*0.01;
+  aacceleration = acceleration.mag()*0.01;
 
 
-angle = angle + avelocity;
+  angle = angle + avelocity;
 
-avelocity = avelocity + aacceleration;
 
-    acceleration.y = acceleration.y  +   gravity.y;
+  avelocity = avelocity + aacceleration;
 
-pushMatrix();
+  acceleration.y = acceleration.y  +   gravity.y;
 
-translate(location.x, location.y);
-rotate(angle);
+  pushMatrix();
+
+  translate(location.x, location.y);
+  rotate(angle);
   rect( 0,0 ,30,30);
 
   popMatrix();
@@ -70,6 +76,16 @@ if(location.y > (height-30) ){
   if(velocity.y <= 0.1){
      velocity.y = 0;
 
+}
+}
 
-
+void keyPressed(){
+  if(key == 'f'){
+    location.x = 0+kanonX.getValue();
+    location.y = height+kanonY.getValue();
+    velocity.x = cos(radians(shotAngle.getValue()))*magnitude.getValue();
+    velocity.y = sin(radians(shotAngle.getValue()))*magnitude.getValue();
+    
+    
+  }
 }
