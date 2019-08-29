@@ -31,7 +31,7 @@ void draw() {
   pushMatrix();
 
 
-  translate (20,height - kanonY.getValue()-60);
+  translate (20,height -60);
   rotate (0-radians(shotAngle.getValue()));
 
   fill(0,255,0);
