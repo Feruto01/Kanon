@@ -31,7 +31,7 @@ void draw() {
   pushMatrix();
 
     translate (20,height - kanonY.getValue()-60);
-    rotate (30);
+    rotate (5.5);
   fill(0,255,0);
   rect(0,0,400,60);
 
