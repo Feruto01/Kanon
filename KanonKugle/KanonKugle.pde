@@ -32,4 +32,6 @@ popMatrix();
 {
  velocity.y *= -0.8   ;
 }
+if (location.x >= width)
+velocity.x *= -0.8     ;
 }
