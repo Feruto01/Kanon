@@ -1,5 +1,5 @@
-PVector location = new PVector (0, 0);
-PVector velocity = new PVector (10, -5);
+PVector location = new PVector (0, 1000);
+PVector velocity = new PVector (20, -15);
 PVector acceleration = new PVector (0, 0);
 PVector gravity = new PVector (0, 0.1);
 PVector avelocity = new PVector (1,1);
