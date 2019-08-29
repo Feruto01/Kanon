@@ -22,11 +22,11 @@ void draw() {
 
     acceleration.y = acceleration.y  +   gravity.y;
   square (location.x,location.y,30);
-pushMatrix();
-rectMode(CENTER);
-translate(location.x, location.y);
-rotate(20);
-popMatrix();
+//pushMatrix();
+//rectMode(CENTER);
+//translate(location.x, location.y);
+//rotate(20);
+//popMatrix();
   
   
   if (location.y >= 600)
