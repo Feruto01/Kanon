@@ -28,22 +28,22 @@ void draw() {
   location.add(velocity);
   velocity.add(acceleration);
   // Vindmodstand
-  //velocity.mult(0.98);
-  aacceleration = acceleration.mag()*0.01;
+  velocity.mult(0.98);
+aacceleration = acceleration.mag()*0.01;
 
 
-  angle = angle + avelocity;
-  
-  avelocity = avelocity + aacceleration;
-  println(aacceleration);
-  acceleration.y = acceleration.y  +   gravity.y;
-  
-  pushMatrix();
-  
-  translate(location.x, location.y);
-  rotate(angle);
+angle = angle + avelocity;
+
+avelocity = avelocity + aacceleration;
+
+    acceleration.y = acceleration.y  +   gravity.y;
+
+pushMatrix();
+
+translate(location.x, location.y);
+rotate(angle);
   rect( 0,0 ,30,30);
-  
+
   popMatrix();
 
 
@@ -53,13 +53,13 @@ void draw() {
  velocity.y = velocity.y -0.1;
  if(velocity.y <= 0.1){
    velocity.y = 0;
- 
+
  }
- 
+
 }
 
 if(location.y > (height-30) ){
- 
+
  location.y = (height-30);
 
 }
