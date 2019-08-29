@@ -36,7 +36,7 @@ void startKnobs(){
                .setFont(bigFont)
                .setResolution(160)
                ;
-  
+
   kanonY= cp5.addKnob("Kanonens y værdi")
                .setRange(10,100)
                .setValue(10)
