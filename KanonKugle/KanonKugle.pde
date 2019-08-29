@@ -1,7 +1,4 @@
-PVector location = new PVector;
-PVector velocity = new PVector (50, -50);
-PVector acceleration = new PVector (0, 0);
-PVector gravity = new PVector (0, 0.1);
+
 
 
 PVector location = new PVector (0, 700);
@@ -30,14 +27,14 @@ void draw() {
   location.add(velocity);
   velocity.add(acceleration);
   // Vindmodstand
-  //velocity.mult(0.98);
+  velocity.mult(0.98);
 aacceleration = acceleration.mag()*0.01;
 
 
 angle = angle + avelocity;
 
 avelocity = avelocity + aacceleration;
-println(aacceleration);
+
     acceleration.y = acceleration.y  +   gravity.y;
 
 pushMatrix();
