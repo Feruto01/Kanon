@@ -38,12 +38,15 @@ class Balls{
        velocity.x *= 0.9;
        angle =0;
     }
+    
 
     //Resets the height
     if(location.y > (height) ){
      location.y = (height);
     }
-
+if(location.y < (0) ){
+     location.y = (0);
+    }
     if(location.x <= 0 || location.x >= width){
       velocity.x *= -1;
     }
