@@ -1,81 +1,53 @@
+//Imports Control p5, and gives it the name cp5, for easier access.
 import controlP5.*;
 ControlP5 cp5;
-PVector location = new PVector (0, 700);
-PVector velocity = new PVector (5, -3);
-PVector acceleration = new PVector (0, 0);
+
+//Defines an arraylist that keeps track of the balls
+ArrayList<Balls> balls = new ArrayList<Balls>();
 PVector gravity = new PVector (0, 0.01);
-
-float  avelocity      ;
-float  aacceleration  ;
-float  angle          ;
-
 
 
 void setup(){
-
-
-  size(1920,800);
+  size(1900,800);
   frameRate(30);
   startKnobs();
-
   rectMode(CENTER);
 }
 
+
+
+
 void draw() {
 
-background(200);
+  background(200);
+ //Draws the cannon
 
-  if (location.y >( height-10) || location.y <= 0)
-{
- velocity.y *= -0.1;
- velocity.x *= 0.9;
- avelocity = 0;
+
+  //Calls all the balls, and updates them
+  for(int i = 0; i< balls.size(); i++){
+      update(balls.get(i));
+  }
+  
+  drawCannon();
 }
 
-if(location.y > (height) ){
- location.y = (height);
 
+
+
+//Tests if the user presses "f", if they do, the ball will shoot at an angle and speed defined by the knobs
+void keyPressed(){
+  if(key == 'f'){
+
+    balls.add(new Balls(10,height-60,cos(radians(shotAngle.getValue()))*(40+magnitude.getValue()),-sin(radians(shotAngle.getValue()))*(40+magnitude.getValue())));
+
+  }
 }
-  
-
-  location.add(velocity);
-  velocity.add(acceleration);
-  // Vindmodstand
-  velocity.mult(0.98);
-    acceleration.y = acceleration.y  +   gravity.y;
-  
-  //Vinkel rotation
-  //aacceleration = acceleration.mag()*0.01;
-  angle = angle + velocity.mag()*0.01;
-  //avelocity = avelocity + aacceleration;
- // if(velocity.x >= 0  || velocity.y >=0){
-  //avelocity = 0;
-  //}
-  
-
-  
-///Kanon kugle
-  pushMatrix();
-
-translate(location.x, location.y);
-rotate(angle);
-  fill(0,0,0);
-  rect( 0,0 ,30,30);
-
-popMatrix();
 
 
 
+void drawCannon(){
+  //Draws Cannon
 
-
-  if (location.x >= width || location.x <= 0)
-    velocity.x *= -1;
-  if(abs(velocity.y) < 0.1){
-     velocity.y = 0;
-
-}
-  //Draws Canon
-  
   pushMatrix();
 
   translate (0,height -60);
@@ -84,28 +56,27 @@ popMatrix();
   rotate (0-radians(shotAngle.getValue()));
   fill(39,89,54);
   rect(0,0,400,60);
-  
+
   popMatrix();
-  
+
   pushMatrix();
   translate (0,height -60);
-  
+
   fill(106,115,61);
   ellipse(60,10,90,90);
   popMatrix();
+
 }
 
-void keyPressed(){
-  if(key == 'f'){
-    location.x = 0;
-    location.y = height-60;
-    velocity.x = cos(radians(shotAngle.getValue()))*(40+magnitude.getValue());
-    velocity.y = -sin(radians(shotAngle.getValue()))*(40+magnitude.getValue());
+void update(Balls anyball){
+  //Tests for collision
+  anyball.testCollision();
 
+  //Moves the ball
+  anyball.ballMovement();
 
+  //Draws the cannonball
+  anyball.drawCannonball();
 
-
-  }
-  
 
 }
