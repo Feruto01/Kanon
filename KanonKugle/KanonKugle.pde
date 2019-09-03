@@ -10,7 +10,7 @@ PVector gravity = new PVector (0, 0.01);
 
 
 
-void setup(){
+void setup() {
 
 
   size(1900,800);
@@ -61,6 +61,7 @@ void drawCannon(){
   ellipse(60,10,90,90);
   popMatrix();
 
+
 }
 
 void update(Balls anyball){
@@ -72,6 +73,5 @@ void update(Balls anyball){
 
   //Draws the cannonball
   anyball.drawCannonball();
-
 
 }
