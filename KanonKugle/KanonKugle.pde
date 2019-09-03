@@ -15,7 +15,7 @@ void setup(){
 
 
   size(1920,800);
-  frameRate(30);
+  frameRate(5);
   startKnobs();
 
   rectMode(CENTER);
@@ -82,8 +82,8 @@ if(location.y > (height-30) ){
 
 void keyPressed(){
   if(key == 'f'){
-    location.x = 100;
-    location.y = height-100;
+    location.x = 0;
+    location.y = height-60;
     velocity.x = cos(radians(shotAngle.getValue()))*magnitude.getValue();
     velocity.y = -sin(radians(shotAngle.getValue()))*magnitude.getValue();
 
