@@ -3,7 +3,7 @@ ControlP5 cp5;
 PVector location = new PVector (0, 700);
 PVector velocity = new PVector (5, -3);
 PVector acceleration = new PVector (0, 0);
-PVector gravity = new PVector (0, 0.1);
+PVector gravity = new PVector (0, 0.01);
 
 float  avelocity      ;
 float  aacceleration  ;
@@ -23,28 +23,15 @@ void setup(){
 
 void draw() {
 
+background(200);
 
 
-
-  //Draws Canon
-  background(200);
-  pushMatrix();
-
-
-  translate (0,height -60);
-  rotate (0-radians(shotAngle.getValue()));
-
-  fill(0,255,0);
-  rect(0,0,400,60);
-
-
-
-  popMatrix();
+  
 
   location.add(velocity);
   velocity.add(acceleration);
   // Vindmodstand
-  velocity.mult(0.8);
+  velocity.mult(0.99);
   aacceleration = acceleration.mag()*0.01;
 
 
@@ -82,6 +69,15 @@ if(location.y > (height-30) ){
      //velocity.y = 0;
 
 }
+  //Draws Canon
+  
+  pushMatrix();
+
+  translate (0,height -60);
+  rotate (0-radians(shotAngle.getValue()));
+  fill(0,255,0);
+  rect(0,0,400,60);
+  popMatrix();
 }
 
 void keyPressed(){
@@ -95,4 +91,6 @@ void keyPressed(){
 
 
   }
+  
+
 }
