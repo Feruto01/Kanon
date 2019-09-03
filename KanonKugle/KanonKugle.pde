@@ -15,7 +15,7 @@ void setup(){
 
 
   size(1920,800);
-  frameRate(5);
+  frameRate(30);
   startKnobs();
 
   rectMode(CENTER);
