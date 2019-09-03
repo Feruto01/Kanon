@@ -36,12 +36,10 @@ background(200);
 
 
   angle = angle + avelocity;
-
-
   avelocity = avelocity + aacceleration;
-
   acceleration.y = acceleration.y  +   gravity.y;
-
+  
+//Kanon kugle
   pushMatrix();
 
 translate(location.x, location.y);
