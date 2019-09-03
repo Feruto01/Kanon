@@ -17,7 +17,7 @@ void setup(){
   size(1920,800);
   frameRate(30);
   startKnobs();
-  location.x = kanonX.getValue();
+  
   rectMode(CENTER);
 }
 
@@ -31,7 +31,7 @@ void draw() {
   pushMatrix();
 
 
-  translate (20,height - kanonY.getValue()-60);
+  translate (20,height -60);
   rotate (0-radians(shotAngle.getValue()));
 
   fill(0,255,0);
@@ -79,17 +79,19 @@ if(location.y > (height-30) ){
   if (location.x >= width || location.x <= 0)
     velocity.x *= -1;
   if(velocity.y <= 0.1){
-     velocity.y = 0;
+     //velocity.y = 0;
 
 }
 }
 
 void keyPressed(){
   if(key == 'f'){
-    location.x = 0+kanonX.getValue();
-    location.y = height+kanonY.getValue();
-    velocity.x = cos(-radians(shotAngle.getValue()))*magnitude.getValue();
-    velocity.y = sin(-radians(shotAngle.getValue()))*magnitude.getValue();
+    location.x = 100;
+    location.y = height-100;
+    velocity.x = cos(radians(shotAngle.getValue()))*magnitude.getValue();
+    velocity.y = -sin(radians(shotAngle.getValue()))*magnitude.getValue();
+    
+   
 
 
   }
