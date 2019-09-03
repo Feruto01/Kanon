@@ -3,7 +3,7 @@ ControlP5 cp5;
 PVector location = new PVector (0, 700);
 PVector velocity = new PVector (5, -3);
 PVector acceleration = new PVector (0, 0);
-PVector gravity = new PVector (0, 0.5);
+PVector gravity = new PVector (0, 0.01);
 
 float  avelocity      ;
 float  aacceleration  ;
@@ -32,12 +32,17 @@ background(200);
   velocity.add(acceleration);
   // Vindmodstand
   velocity.mult(0.98);
+    acceleration.y = acceleration.y  +   gravity.y;
+  
+  //Vinkel rotation
   aacceleration = acceleration.mag()*0.01;
   angle = angle + avelocity;
   avelocity = avelocity + aacceleration;
+ // if(velocity.x >= 0  || velocity.y >=0){
+  //avelocity = 0;
+  //}
   
-  
-  acceleration.y = acceleration.y  +   gravity.y;
+
   
 ///Kanon kugle
   pushMatrix();
@@ -52,7 +57,7 @@ popMatrix();
 
   if (location.y >( height-30) || location.y <= 0)
 {
- velocity.y *= -0.8   ;
+ velocity.y *= -0.1   ;
 }
 
 if(location.y > (height-30) ){
