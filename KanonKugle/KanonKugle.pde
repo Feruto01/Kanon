@@ -25,7 +25,17 @@ void draw() {
 
 background(200);
 
+  if (location.y >( height-10) || location.y <= 0)
+{
+ velocity.y *= -0.1;
+ velocity.x *= 0.9;
+ avelocity = 0;
+}
 
+if(location.y > (height) ){
+ location.y = (height);
+
+}
   
 
   location.add(velocity);
@@ -35,9 +45,9 @@ background(200);
     acceleration.y = acceleration.y  +   gravity.y;
   
   //Vinkel rotation
-  aacceleration = acceleration.mag()*0.01;
-  angle = angle + avelocity;
-  avelocity = avelocity + aacceleration;
+  //aacceleration = acceleration.mag()*0.01;
+  angle = angle + velocity.mag()*0.01;
+  //avelocity = avelocity + aacceleration;
  // if(velocity.x >= 0  || velocity.y >=0){
   //avelocity = 0;
   //}
@@ -55,15 +65,7 @@ rotate(angle);
 popMatrix();
 
 
-  if (location.y >( height-30) || location.y <= 0)
-{
- velocity.y *= -0.1   ;
-}
 
-if(location.y > (height-30) ){
- location.y = (height-30);
-
-}
 
 
   if (location.x >= width || location.x <= 0)
