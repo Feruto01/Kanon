@@ -3,7 +3,7 @@ ControlP5 cp5;
 PVector location = new PVector (0, 700);
 PVector velocity = new PVector (5, -3);
 PVector acceleration = new PVector (0, 0);
-PVector gravity = new PVector (0, 0.001);
+PVector gravity = new PVector (0, 0.1);
 
 float  avelocity      ;
 float  aacceleration  ;
@@ -17,7 +17,7 @@ void setup(){
   size(1920,800);
   frameRate(30);
   startKnobs();
-  
+
   rectMode(CENTER);
 }
 
@@ -31,7 +31,7 @@ void draw() {
   pushMatrix();
 
 
-  translate (20,height -60);
+  translate (0,height -60);
   rotate (0-radians(shotAngle.getValue()));
 
   fill(0,255,0);
@@ -44,7 +44,7 @@ void draw() {
   location.add(velocity);
   velocity.add(acceleration);
   // Vindmodstand
-  velocity.mult(0.98);
+  velocity.mult(0.8);
   aacceleration = acceleration.mag()*0.01;
 
 
@@ -90,8 +90,8 @@ void keyPressed(){
     location.y = height-100;
     velocity.x = cos(radians(shotAngle.getValue()))*magnitude.getValue();
     velocity.y = -sin(radians(shotAngle.getValue()))*magnitude.getValue();
-    
-   
+
+
 
 
   }
